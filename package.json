@@ -4,8 +4,10 @@
     "description": "Jekyll helper commands",
     "keywords": [
         "jekyll",
+        "cli",
         "tools",
-        "cli"
+        "commands",
+        "helper"
     ],
     "author": "Jason Rhodes <jason.matthew.rhodes@gmail.com>",
     "license": "MIT",
