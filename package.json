@@ -1,0 +1,26 @@
+{
+    "name": "jk",
+    "version": "0.0.1",
+    "description": "Jekyll helper commands",
+    "keywords": [
+        "jekyll",
+        "tools",
+        "cli"
+    ],
+    "author": "Jason Rhodes <jason.matthew.rhodes@gmail.com>",
+    "license": "MIT",
+    "readmeFilename": "README.md",
+    "repository": "git://github.com/jasonrhodes/jk.git",
+    "bin": {
+        "jk": "./bin/jk"
+    },
+    "dependencies": {
+        "helmsman": "~0.2.1",
+        "colors": "~0.6.0-1",
+        "optimist": "~0.3.5"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    }
+}
