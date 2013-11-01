@@ -4,7 +4,7 @@ var helmsman = require("helmsman");
 var cli = helmsman();
 
 cli.on('--help', function () {
-    console.log("You're using jk oh boy");
+    //console.log("Jekyll t");
 });
 
 cli.parse();

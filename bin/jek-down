@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+var jekyll = require('../index');
+var color = require('cli-color');
+var argv = require('optimist').argv;
+
+exports.command = {
+    description: 'Kill a jekyll process if you know the ID, or kill all Jekyll processes'
+};
+
+if (require.main === module) {
+    
+    (function () {
+
+        var pid = argv._[0];
+
+        if (pid && !isNaN(pid)) {
+            console.log(color.magenta('Hunting down jekyll process #' + pid + '...'));
+        }
+        else if (pid && isNaN(pid)) {
+            console.log(color.red('Invalid argument: down command takes a numeric pid only'));
+            return;
+        }
+        else {
+            console.log(color.magenta('Hunting down all running jekyll processes...'));
+        }
+
+        jekyll.down(pid);
+
+    })();
+
+}

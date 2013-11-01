@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+
+var jekyll = require('../index'),
+    color = require('cli-color'),
+    argv = require('optimist').argv;
+
+exports.command = {
+    description: 'Spin up the local Jekyll server, open your editor, and get to work.'
+    // , arguments: ['-e', '-b', '-w', '-d', '-f']
+};
+
+if (require.main === module) {
+    
+    console.log(color.cyan('Spinning up the jekyll server...'));
+    jekyll.up({
+        editor:         argv.e || argv.editor,
+        browser:        argv.b || argv.browser,
+        watch:          argv.w || argv.watch,
+        drafts:         argv.d || argv.drafts,
+        future:         argv.f || argv.future,
+        editorCommand:  argv['editor-command'],
+        port:           argv.port
+    });
+
+}

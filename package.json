@@ -1,28 +1,33 @@
 {
-    "name": "jk",
-    "version": "0.0.1",
-    "description": "Jekyll helper commands",
-    "keywords": [
-        "jekyll",
-        "cli",
-        "tools",
-        "commands",
-        "helper"
-    ],
-    "author": "Jason Rhodes <jason.matthew.rhodes@gmail.com>",
-    "license": "MIT",
-    "readmeFilename": "README.md",
-    "repository": "git://github.com/jasonrhodes/jk.git",
-    "bin": {
-        "jk": "./bin/jk"
-    },
-    "dependencies": {
-        "helmsman": "~0.2.1",
-        "colors": "~0.6.0-1",
-        "optimist": "~0.3.5"
-    },
-    "devDependencies": {},
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    }
+  "name": "jekyll-tools",
+  "version": "0.0.1",
+  "description": "Making Jekyll even easier and more powerful",
+  "keywords": [
+    "jekyll",
+    "cli",
+    "tools",
+    "commands",
+    "helper"
+  ],
+  "main": "index.js",
+  "author": "Jason Rhodes <jason.matthew.rhodes@gmail.com>",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "repository": "git://github.com/jasonrhodes/jekyll-tools.git",
+  "bin": {
+    "jek": "./bin/jek"
+  },
+  "dependencies": {
+    "helmsman": "~0.2.1",
+    "optimist": "~0.3.5",
+    "cli-color": "~0.2.2",
+    "js-yaml": "~2.1.0",
+    "lodash": "~1.3.1",
+    "slug": "~0.3.3",
+    "async": "~0.2.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }

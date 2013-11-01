@@ -1,0 +1,46 @@
+#!/usr/bin/env node
+
+var jekyll = require('../index'),
+    color = require('cli-color'),
+    argv = require('optimist').argv,
+    _ = require('lodash'),
+    slug = require('slug');
+
+var zeroify = function (number) {
+    if (number.toString().length === 1) {
+        number = '0' + number.toString();
+    }
+    return number;
+};
+
+exports.command = {
+    description: 'Create a new something'
+};
+
+if (require.main === module) {
+    
+    (function () {
+
+        var options = {}, other;
+        var date = new Date();
+        var dateslug = [date.getFullYear(), date.getMonth() + 1, date.getDate()]
+            .map(function (num) {
+                return zeroify(num);
+            })
+            .join('-');
+
+        options.type = argv.type || argv._[0] || "post";
+        options.title = argv.title || argv._[1];
+        options = _.extend(_.omit(argv, '_', '$0'), options);
+
+        options.slug = (options.slug || slug(options.title).toLowerCase()) + ".md";
+        if (!options.omitDate) {
+            options.slug = dateslug + '-' + options.slug;
+        }
+        
+        jekyll.new(options);
+
+    })();
+
+}
+

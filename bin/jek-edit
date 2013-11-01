@@ -1,0 +1,58 @@
+#!/usr/bin/env node
+
+var jekyll      = require('../index')
+  , color       = require('cli-color')
+  , optimist    = require('optimist')
+  , argv        = optimist.argv
+  , _           = require('lodash')
+  , fs          = require('fs')
+  , exec        = require('child_process').exec
+  , prompt      = require('../lib/prompt')
+  ;
+
+optimist.usage(function () {
+    console.log('This is the edit help');
+});
+
+exports.command = {
+    description: 'Edit something'
+};
+
+if (require.main === module) {
+
+    (function () {
+
+        var options = {
+            type: argv._[0],
+            search: argv._[1],
+            directory: argv.directory
+        };
+
+        if (!options.type) {
+            console.log(color.red("You must pass a 'type' as the first parameter to 'edit' (post, draft, etc)"));
+            return;
+        }
+
+        jekyll.find(options, function (files) {
+            
+            if (!files) return;
+
+            files.forEach(function (f, i) {
+                console.log(color.yellow('[' + i + '] ') + color.cyan(f));
+            });
+
+            prompt('Which one? Type the number:', function (num) {
+                var directory = process.cwd() + "/" + (options.directory || "_" + options.type + "s");
+                if (_.isNumber(parseInt(num, 10))) {
+                    jekyll.edit(directory + "/" + files[num]);
+                    process.exit();
+                }
+                else {
+                    console.log("Sorry, " + num + " is not a valid selection. Pick again (or type quit)");
+                }
+            });
+            
+        });
+
+    })();
+}

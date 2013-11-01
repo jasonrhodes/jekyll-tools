@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+
+var jekyll = require('../index');
+var color = require('cli-color');
+var argv = require('optimist').argv;
+
+exports.command = {
+    description: 'Deploy your site somewhere'
+};
+
+if (require.main === module) {
+
+    jekyll.deploy();
+    
+    // console.log('do the stuff with the things ok yeah you know you want to do it');
+
+}
+
